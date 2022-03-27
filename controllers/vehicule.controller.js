@@ -89,6 +89,7 @@ const getAllVehicules = async (req, res) => {
     });
   }
 };
+// testing push 
 const getAllVehiculesByType = async (req, res) => {
   try {
     let { type } = req.params;
