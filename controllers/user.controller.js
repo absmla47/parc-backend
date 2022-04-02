@@ -102,4 +102,40 @@ const getUserById = async (req, res) => {
     });
   }
 };
-module.exports = { addUser, loginUser, getAllUsers, getUserById };
+const updateUser = async (req, res) => {
+  try {
+    let { id } = req.params;
+    let dataToUpdate = req.body;
+    let result = await User.findByIdAndUpdate(
+      id,
+      { ...dataToUpdate },
+      { new: true }
+    );
+    res.json({
+      success: true,
+      result: result,
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      result: error.message,
+    });
+  }
+};
+async function deleteUser(req, res) {
+  try {
+    let { id } = req.params;
+
+    let result = await Mission.findByIdAndDelete(id);
+    res.json({
+      success: true,
+      result: result,
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      result: error.message,
+    });
+  }
+}
+module.exports = { addUser, loginUser, getAllUsers, getUserById,updateUser,deleteUser };

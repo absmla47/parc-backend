@@ -5,6 +5,16 @@ const missionSchema = new mongoose.Schema({
     required: true,
     default: 0,
   },
+  startTime: {
+    type: String,
+    required: true,
+    default: "",
+  },
+  arrivalTime: {
+    type: String,
+    required: true,
+    default: "",
+  },
   destination: {
     type: String,
     required: true,

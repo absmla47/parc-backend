@@ -6,6 +6,8 @@ const addNewMission = async (req, res) => {
       req.body;
     let newMission = new Mission({
       dateMission,
+      startTime,
+      arrivalTime,
       destination,
       evaluation,
       chauffeur,
@@ -40,5 +42,40 @@ const getAllMissions = async (req, res) => {
     });
   }
 };
+const updateMission = async (req, res) => {
+  try {
+    let { id } = req.params;
+    let dataToUpdate = req.body;
+    let result = await Mission.findByIdAndUpdate(
+      id,
+      { ...dataToUpdate },
+      { new: true }
+    );
+    res.json({
+      success: true,
+      result: result,
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      result: error.message,
+    });
+  }
+};
+const deleteMission = async (req, res) => {
+  try {
+    let { id } = req.params;
+    let result = await Mission.findByIdAndDelete(id);
+    res.json({
+      success: true,
+      result: result,
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      result: error.message,
+    });
+  }
+};
 
-module.exports = { addNewMission, getAllMissions };
+module.exports = { addNewMission, getAllMissions,updateMission,deleteMission };
