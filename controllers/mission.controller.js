@@ -2,7 +2,7 @@ const Mission = require("../models/mission.model");
 
 const addNewMission = async (req, res) => {
   try {
-    let { dateMission, destination, evaluation, chauffeur, vehicule } =
+    let { dateMission, destination, evaluation, chauffeur, vehicule,startTime,arrivalTime } =
       req.body;
     let newMission = new Mission({
       dateMission,

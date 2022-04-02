@@ -15,6 +15,7 @@ const addUser = async (req, res) => {
       password,
       numDriver,
       categDriver,
+      phoneNumber,
       role,
     } = req.body;
     let hash = await bcrypt.hash(password, 10);
@@ -29,6 +30,7 @@ const addUser = async (req, res) => {
       password: hash,
       numDriver: numDriver,
       categDriver: categDriver,
+      phoneNumber :phoneNumber,
       role: role,
     });
     let result = await newUser.save();
@@ -126,7 +128,7 @@ async function deleteUser(req, res) {
   try {
     let { id } = req.params;
 
-    let result = await Mission.findByIdAndDelete(id);
+    let result = await User.findByIdAndDelete(id);
     res.json({
       success: true,
       result: result,
