@@ -30,7 +30,7 @@ const addUser = async (req, res) => {
       password: hash,
       numDriver: numDriver,
       categDriver: categDriver,
-      phoneNumber :phoneNumber,
+      phoneNumber: phoneNumber,
       role: role,
     });
     let result = await newUser.save();
@@ -140,4 +140,22 @@ async function deleteUser(req, res) {
     });
   }
 }
-module.exports = { addUser, loginUser, getAllUsers, getUserById,updateUser,deleteUser };
+const getUserByRole = async (req, res) => {
+  try {
+    let { userrole } = req.params;
+    let result = await User.find({ role: userrole });
+    res.json({
+      success: true,
+      result: result,
+    });
+  } catch (error) {}
+};
+module.exports = {
+  addUser,
+  loginUser,
+  getAllUsers,
+  getUserById,
+  updateUser,
+  deleteUser,
+  getUserByRole,
+};

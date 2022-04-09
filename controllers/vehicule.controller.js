@@ -74,7 +74,7 @@ const deleteVehicule = async (req, res) => {
       result: error.message,
     });
   }
-};
+}; 
 const getAllVehicules = async (req, res) => {
   try {
     let vehicules = await Vehicul.find();
@@ -112,4 +112,5 @@ module.exports = {
   deleteVehicule,
   getAllVehicules,
   getAllVehiculesByType,
+
 };

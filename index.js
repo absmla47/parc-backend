@@ -11,10 +11,14 @@ mongoose.connect("mongodb://localhost:27017/parc").then(() => {
 const userRoutes = require("./routes/user.routes");
 const vehiculeRouter = require("./routes/vehicul.routes");
 const missionRouter = require("./routes/mission.routes");
+const depensesRouter = require("./routes/depenses.routes");
+const ficheControleRouter = require("./routes/controletech.routes");
 
 app.use("/user", userRoutes);
 app.use("/vehicule", vehiculeRouter);
 app.use("/mission", missionRouter);
+app.use("/depenses", depensesRouter);
+app.use("/controletech", ficheControleRouter)
 const initFn = () => {
   console.log("App is running on port 3500");
 };

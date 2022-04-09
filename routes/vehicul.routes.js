@@ -5,6 +5,7 @@ const {
   getAllVehicules,
   getAllVehiculesByType,
   deleteVehicule,
+ 
 } = require("../controllers/vehicule.controller");
 const verifToken = require("../utils/verifToken");
 const router = express.Router();
@@ -14,4 +15,5 @@ router.get("/", verifToken, getAllVehicules);
 router.get("/:type", verifToken, getAllVehiculesByType);
 router.delete("/delete/:id", verifToken, deleteVehicule);
 router.put("/put/:id",verifToken, updateVehicule);
-module.exports = router;
+
+module.exports = router; 
