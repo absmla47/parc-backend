@@ -80,7 +80,7 @@ const getAllVehicules = async (req, res) => {
     let vehicules = await Vehicul.find();
     res.json({
       success: true,
-      result: vehicules,
+      vehicules: vehicules,
     });
   } catch (error) {
     res.json({

@@ -1,10 +1,5 @@
 const mongoose = require("mongoose");
 const ControleSchema = new mongoose.Schema({
-  id: {
-    type: Number,
-    required: true,
-    default: 0,
-  },
   date: {
     type: String,
     required: true,
@@ -34,6 +29,11 @@ const ControleSchema = new mongoose.Schema({
     type: String,
     required: true,
     default: 0,
+  },
+  typePlafond: {
+    type: Number,
+    required: true,
+    default: 1,
   },
   vehicule: {
     type: mongoose.Schema.Types.ObjectId,

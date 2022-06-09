@@ -15,15 +15,12 @@ const missionSchema = new mongoose.Schema({
     required: true,
     default: "",
   },
-  destination: {
+  destination: {},
+  evaluation: { type: Number, required: false },
+  cause: {
     type: String,
     required: true,
     default: "",
-  },
-  evaluation: {
-    type: Boolean,
-    required: true,
-    default: false,
   },
   chauffeur: {
     type: mongoose.Schema.Types.ObjectId,
@@ -32,6 +29,10 @@ const missionSchema = new mongoose.Schema({
   vehicule: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Vehicul",
+  },
+  isFinished: {
+    type: Boolean,
+    default: false,
   },
 });
 module.exports = mongoose.model("Mission", missionSchema);

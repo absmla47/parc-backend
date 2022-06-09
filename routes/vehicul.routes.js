@@ -14,6 +14,6 @@ router.put("/edit/:id", verifToken, updateVehicule);
 router.get("/", verifToken, getAllVehicules);
 router.get("/:type", verifToken, getAllVehiculesByType);
 router.delete("/delete/:id", verifToken, deleteVehicule);
-router.put("/put/:id",verifToken, updateVehicule);
+//router.put("/edit/:id",verifToken, updateVehicule);
 
 module.exports = router; 

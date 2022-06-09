@@ -4,6 +4,7 @@ const {
   getAllMissions,
   deleteMission,
   updateMission,
+  terminateMission,
 } = require("../controllers/mission.controller");
 const verifToken = require("../utils/verifToken");
 const router = express.Router();
@@ -11,6 +12,6 @@ const router = express.Router();
 router.post("/add", verifToken, addNewMission);
 router.get("/", verifToken, getAllMissions);
 router.delete("/delete/:id", verifToken, deleteMission);
-router.put("/",verifToken, updateMission);
-
+router.put("/edit/:id", verifToken, updateMission);
+router.put("/terminate/:id", verifToken, terminateMission);
 module.exports = router;

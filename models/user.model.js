@@ -51,20 +51,24 @@ const UserSchema = new mongoose.Schema({
     required: false,
     default: "",
   },
-  phoneNumber :{
+  phoneNumber: {
     type: Number,
     required: true,
     default: 0,
-
   },
   role: {
     type: String,
     required: true,
     default: "CHAUFFEUR",
   },
+  available: {
+    type: Boolean,
+    required: true,
+    default: true,
+  },
+  profilePic: {
+    type: "String",
+  },
 });
 
-
 module.exports = mongoose.model("User", UserSchema);
-
-
